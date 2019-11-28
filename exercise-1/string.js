@@ -65,7 +65,7 @@ function leet(str) {
     return res;
 }
 
-const prop_access = (object, attribute) => {
+function prop_access(object, attribute) {
     if(typeof(attribute) !== "string") return "";
     const attrs = attribute.split('.');
     for(let i = 0 ; i< attrs.length ; ++i) {
@@ -75,4 +75,4 @@ const prop_access = (object, attribute) => {
         object = object[attrs[i]];
     }
     return object;
-};
+}
