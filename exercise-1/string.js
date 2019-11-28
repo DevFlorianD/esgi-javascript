@@ -1,12 +1,16 @@
+console.log(camelCase('ToggleCase is_the coolest'));
+
 function ucfirst(str) {
     if (typeof str !== "string" || str.length === 0) return "";
     return str[0].toUpperCase() + str.substring(1);
 }
 
+
 function capitalize(str) {
     if (typeof str !== "string" || str.length === 0) return "";
     return str
         .toLowerCase()
+        .replace('_', '')
         .split(' ')
         .map(function (item) {
             return ucfirst(item);
@@ -18,7 +22,6 @@ function camelCase(str) {
     if (typeof str !== "string" || str.length === 0) return "";
     str = capitalize(str);
     str = str.replace(/\s+/g, '');
-    str = str.replace('_', '');
 
     return str;
 }
