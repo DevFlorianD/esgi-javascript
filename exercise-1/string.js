@@ -25,9 +25,9 @@ function camelCase(str) {
 
 function snake_case(str) {
     if (typeof str !== "string" || str.length === 0) return "";
+    str = str.toLowerCase();
     return str.
-        replace(/\s+/g, '_')
-        .toLowerCase();
+        replace(/\s+/g, '_');
 }
 
 function leet(str) {
