@@ -1,7 +1,3 @@
-console.log(camelCase('hello world'));
-console.log(snake_case('hello world hello hello'));
-console.log(leet('Anaconda'));
-
 function ucfirst(str) {
     if (typeof str !== "string" || str.length === 0) return "";
     return str[0].toUpperCase() + str.substring(1);
@@ -62,8 +58,3 @@ function leet(str) {
 
     return res;
 }
-
-// function prop_access(str) {
-//     if (typeof str !== "string" || str.length === 0) return "";
-//
-// }
