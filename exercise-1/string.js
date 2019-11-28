@@ -65,14 +65,15 @@ function leet(str) {
     return res;
 }
 
-function prop_access(object, attribute) {
-    if(typeof(attribute) !== "string") return "";
+function prop_access (object, attribute) {
+    if(typeof(attribute) !== "string" || !attribute.length) return object;
     const attrs = attribute.split('.');
     for(let i = 0 ; i< attrs.length ; ++i) {
-        if(!object[attrs[i]]){
-            console.log(attrs.slice(0, i+1).join('.'));
+        if(!object.hasOwnProperty(attrs[i])){
+            console.log(attrs.slice(0, i+1).join('.'), 'not exist');
+            return;
         }
         object = object[attrs[i]];
     }
     return object;
-}
+};
