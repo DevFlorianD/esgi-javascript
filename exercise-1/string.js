@@ -16,14 +16,18 @@ function capitalize(str) {
 
 function camelCase(str) {
     if (typeof str !== "string" || str.length === 0) return "";
-    return capitalize(str).
-    replace(/\s+/g, '');
+    str = capitalize(str);
+    str = str.replace(/\s+/g, '');
+    str = str.replace('_', '');
+
+    return str;
 }
 
 function snake_case(str) {
     if (typeof str !== "string" || str.length === 0) return "";
     return str.
-    replace(/\s+/g, '_');
+        toLowerCase.
+        replace(/\s+/g, '_');
 }
 
 function leet(str) {
