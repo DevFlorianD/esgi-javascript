@@ -51,7 +51,7 @@ function leet(str) {
                 res += '0';
                 break;
             case 'U':
-                res += '_';
+                res += '(_)';
                 break;
             case 'Y':
                 res += '7';
