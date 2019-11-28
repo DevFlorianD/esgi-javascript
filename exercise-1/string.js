@@ -9,7 +9,7 @@ function capitalize(str) {
     return str
         .toLowerCase()
         .replace('_', ' ')
-        .trim().
+        .trim()
         .split(' ')
         .map(function (item) {
             return ucfirst(item);
