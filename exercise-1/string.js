@@ -76,4 +76,26 @@ function prop_access (object, attribute) {
         object = object[attrs[i]];
     }
     return object;
-};
+}
+
+function yoda(str) {
+    if(typeof str !== "string" || !str) return "";
+    return str.split(' ').reverse().join(' ');
+}
+
+function vig(str, code) {
+    while(code.length < str.length) {
+        code += code;
+    }
+    let codeIndex = 0;
+    return str.split('').map(function(char) {
+        const carCode = char.charCodeAt(0) - "a".charCodeAt(0);
+
+        if(carCode <0 || carCode > 25) return char;
+
+        const codeCode = code[codeIndex++].charCodeAt(0) - "a".charCodeAt(0);
+        const cryptedCode = carCode + codeCode % 26;
+
+        return String.fromCharCode(cryptedCode + "a".charCodeAt(0));
+    }).join('');
+}
