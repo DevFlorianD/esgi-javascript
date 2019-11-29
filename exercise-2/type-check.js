@@ -1,20 +1,14 @@
-console.log(type_check_v2({bar: "foo"}, {type: "object", value: {bar: "foo"}}))
+console.log(type_check_v1(undefined, "undefined"))
 
 function type_check_v1(input, type) {
     if (input === null && type === "null" || typeof input === undefined && type === "undefined") {
         return true
     }
     if (typeof input === type) {
-        if (input === null && type === "object") {
-            return false
-        }
-        return true
-    }
-    if (type === "array" && input.constructor === Array ) {
-        return true
-    }
+        return !(input === null && type === "object");
 
-    return false
+    }
+    return type === "array" && input.constructor === Array;
 }
 
 function type_check_v2(arg1, arg2) {

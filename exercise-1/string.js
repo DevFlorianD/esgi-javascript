@@ -65,17 +65,29 @@ function leet(str) {
     return res;
 }
 
-function prop_access (object, attribute) {
-    if(typeof(attribute) !== "string" || !attribute.length) return object;
-    const attrs = attribute.split('.');
-    for(let i = 0 ; i< attrs.length ; ++i) {
-        if(!object.hasOwnProperty(attrs[i])){
-            console.log(attrs.slice(0, i+1).join('.'), 'not exist');
+function prop_access(object, path) {
+    if (typeof path != "string"){
+        return object;
+    }
+
+    if(typeof object != 'object' || object == null) {
+        console.log(path + ' not exist');
+        return;
+    }
+    if (path === '') {
+        return object;
+    }
+
+    const props = path.split('.');
+    let property = object;
+    props.forEach(function (prop) {
+        if(!property.hasOwnProperty(prop)) {
+            console.log(path + ' not exist');
             return;
         }
-        object = object[attrs[i]];
-    }
-    return object;
+        property = property[prop];
+    });
+    return property;
 }
 
 function yoda(str) {
