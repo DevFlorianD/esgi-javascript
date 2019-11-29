@@ -8,7 +8,7 @@ function type_check_v1(input, type) {
         return !(input === null && type === "object");
 
     }
-    return type === "array" && input.constructor === Array;
+    return type === "array" && Array.isArray(input);
 }
 
 function type_check_v2(arg1, arg2) {
